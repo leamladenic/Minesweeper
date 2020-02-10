@@ -13,7 +13,7 @@ export enum CellValue {
 export enum CellState {
   open,
   visible,
-  flaged
+  flagged
 }
 export type Cell = {
   value: CellValue;

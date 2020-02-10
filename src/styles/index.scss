@@ -8,4 +8,10 @@
 }
 
 @mixin button {
+  &:active {
+    border-right-color: #ffe1ff;
+    border-bottom-color: #ffe1ff;
+    border-left-color: #9400d3;
+    border-top-color: #9400d3;
+  }
 }
