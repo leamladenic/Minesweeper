@@ -1,23 +1,16 @@
+@import "../../styles/index.scss";
+
 .App {
   background-color: #ba55d3;
   padding: 16px;
-  border-width: 4px;
-  border-style: solid;
-  border-right-color: #9400d3;
-  border-bottom-color: #9400d3;
-  border-left-color: white;
-  border-top-color: white;
+  @include borders(white, #9400d3);
 }
 
 .Header {
   background-color: #ee82ee;
   padding: 10px 12px;
-  border-width: 4px;
-  border-style: solid;
-  border-right-color: #ffe1ff;
-  border-bottom-color: #ffe1ff;
-  border-left-color: #9a009a;
-  border-top-color: #9a009a;
+  @include borders(#9a009a, #ffe1ff);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,12 +19,7 @@
 .Body {
   background-color: #ee82ee;
   margin-top: 16px;
-  border-width: 4px;
-  border-style: solid;
-  border-right-color: #ffe1ff;
-  border-bottom-color: #ffe1ff;
-  border-left-color: #9a009a;
-  border-top-color: #9a009a;
+  @include borders(#9a009a, #ffe1ff);
   display: grid;
   grid-template-rows: repeat(15, 1fr);
   grid-template-columns: repeat(15, 1fr);
@@ -40,12 +28,7 @@
   width: 65px;
   height: 65px;
   font-size: 40px;
-  border-width: 4px;
-  border-style: solid;
-  border-right-color: #9a009a;
-  border-bottom-color: #9a009a;
-  border-left-color: #ffe1ff;
-  border-top-color: #ffe1ff;
+  @include borders(#ffe1ff, #9a009a);
   display: flex;
   justify-content: center;
   cursor: pointer;
