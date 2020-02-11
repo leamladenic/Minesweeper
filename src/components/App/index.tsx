@@ -56,23 +56,13 @@ const App: React.FC = () => {
   }, [hasWon]);
 
   const handleCellClick = (rowParam: number, colParam: number) => (): void => {
-    let newCells = cells.slice();
-
+    //start
     if (!live) {
-      if (newCells[rowParam][colParam].value === CellValue.bomb) {
-        let isABomb = true;
-        while (isABomb) {
-          newCells = generateCells();
-          if (newCells[rowParam][colParam].value !== CellValue.bomb) {
-            isABomb = false;
-            break;
-          }
-        }
-      }
       setLive(true);
     }
 
     const currentCell = cells[rowParam][colParam];
+    let newCells = cells.slice();
     if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
       return;
     }
@@ -153,6 +143,7 @@ const App: React.FC = () => {
     setCells(generateCells());
     setHasLost(false);
     setHasWon(false);
+    setBombCounter(18);
   };
 
   const renderCells = (): React.ReactNode => {
