@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import NumberDisplay from "../NumberDisplay";
 import "./App.scss";
-import { generateCells } from "../../utils";
+import { generateCells, OpenMultipleCells } from "../../utils";
 import Button from "../Button";
-import { CellState } from "../../types";
+import { CellState, CellValue } from "../../types";
 import { Face, Cell } from "../../types";
 
 const App: React.FC = () => {
@@ -43,6 +43,22 @@ const App: React.FC = () => {
     //start
     if (!live) {
       setLive(true);
+    }
+
+    const currentCell = cells[rowParam][colParam];
+    let newCells = cells.slice();
+    if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
+      return;
+    }
+
+    if (currentCell.value === CellValue.bomb) {
+      //TODO
+    } else if (currentCell.value === CellValue.none) {
+      newCells = OpenMultipleCells(newCells, rowParam, colParam);
+      setCells(newCells);
+    } else {
+      newCells[rowParam][colParam].state = CellState.visible;
+      setCells(newCells);
     }
   };
 
