@@ -1,6 +1,6 @@
 import { MAX_ROWS, MAX_COLS, NUM_BOMBS } from "../constants";
 import { CellValue, CellState, Cell } from "../types";
-
+import React from "react";
 export const generateCells = (): Cell[][] => {
   let cells: Cell[][] = [];
 
